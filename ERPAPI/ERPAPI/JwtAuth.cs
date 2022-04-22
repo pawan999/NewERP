@@ -1,4 +1,7 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using ERPAPI.Entities;
+using ERPServices.Interface;
+using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -11,17 +14,17 @@ namespace ERPAPI
 
         private readonly string username = "kirtesh";
         private readonly string password = "Demo1";
-        private readonly string key;
-        public JwtAuth(string key)
+        private readonly string key  = "This is my first Test Key";
+        private readonly IMembersService objMembersService;
+        
+        public JwtAuth( IMembersService membersService)
         {
-            this.key = key;
+           
+            this.objMembersService = membersService;
         }
         public string Authentication(string username, string password)
         {
-            if (!(username.Equals(username) || password.Equals(password)))
-            {
-                return null;
-            }
+            User objUser = objMembersService.AuthenticateMember(username, password);
 
             // 1. Create Security Token Handler
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -35,7 +38,7 @@ namespace ERPAPI
                 Subject = new ClaimsIdentity(
                     new Claim[]
                     {
-                        new Claim(ClaimTypes.Name, username)
+                        new Claim(ClaimTypes.UserData, JsonConvert.SerializeObject( objUser))
                     }),
                 Expires = DateTime.UtcNow.AddHours(1),
                 SigningCredentials = new SigningCredentials(

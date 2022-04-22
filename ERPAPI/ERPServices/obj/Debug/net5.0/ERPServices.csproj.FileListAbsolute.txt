@@ -1,0 +1,17 @@
+D:\GIT\ERPAPI\ERPServices\bin\Debug\net5.0\ERPServices.deps.json
+D:\GIT\ERPAPI\ERPServices\bin\Debug\net5.0\ERPServices.dll
+D:\GIT\ERPAPI\ERPServices\bin\Debug\net5.0\ERPServices.pdb
+D:\GIT\ERPAPI\ERPServices\obj\Debug\net5.0\ERPServices.csproj.AssemblyReference.cache
+D:\GIT\ERPAPI\ERPServices\obj\Debug\net5.0\ERPServices.GeneratedMSBuildEditorConfig.editorconfig
+D:\GIT\ERPAPI\ERPServices\obj\Debug\net5.0\ERPServices.AssemblyInfoInputs.cache
+D:\GIT\ERPAPI\ERPServices\obj\Debug\net5.0\ERPServices.AssemblyInfo.cs
+D:\GIT\ERPAPI\ERPServices\obj\Debug\net5.0\ERPServices.csproj.CoreCompileInputs.cache
+D:\GIT\ERPAPI\ERPServices\obj\Debug\net5.0\ERPServices.dll
+D:\GIT\ERPAPI\ERPServices\obj\Debug\net5.0\refint\ERPServices.dll
+D:\GIT\ERPAPI\ERPServices\obj\Debug\net5.0\ERPServices.pdb
+D:\GIT\ERPAPI\ERPServices\obj\Debug\net5.0\ref\ERPServices.dll
+D:\GIT\ERPAPI\ERPServices\bin\Debug\net5.0\ERPDAL.dll
+D:\GIT\ERPAPI\ERPServices\bin\Debug\net5.0\ERPEntities.dll
+D:\GIT\ERPAPI\ERPServices\bin\Debug\net5.0\ERPDAL.pdb
+D:\GIT\ERPAPI\ERPServices\bin\Debug\net5.0\ERPEntities.pdb
+D:\GIT\ERPAPI\ERPServices\obj\Debug\net5.0\ERPServices.csproj.CopyComplete

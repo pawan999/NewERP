@@ -1,0 +1,12 @@
+D:\GIT\ERPAPI\ERPEntities\bin\Debug\net5.0\ERPEntities.deps.json
+D:\GIT\ERPAPI\ERPEntities\bin\Debug\net5.0\ERPEntities.dll
+D:\GIT\ERPAPI\ERPEntities\bin\Debug\net5.0\ERPEntities.pdb
+D:\GIT\ERPAPI\ERPEntities\obj\Debug\net5.0\ERPEntities.csproj.AssemblyReference.cache
+D:\GIT\ERPAPI\ERPEntities\obj\Debug\net5.0\ERPEntities.GeneratedMSBuildEditorConfig.editorconfig
+D:\GIT\ERPAPI\ERPEntities\obj\Debug\net5.0\ERPEntities.AssemblyInfoInputs.cache
+D:\GIT\ERPAPI\ERPEntities\obj\Debug\net5.0\ERPEntities.AssemblyInfo.cs
+D:\GIT\ERPAPI\ERPEntities\obj\Debug\net5.0\ERPEntities.csproj.CoreCompileInputs.cache
+D:\GIT\ERPAPI\ERPEntities\obj\Debug\net5.0\ERPEntities.dll
+D:\GIT\ERPAPI\ERPEntities\obj\Debug\net5.0\refint\ERPEntities.dll
+D:\GIT\ERPAPI\ERPEntities\obj\Debug\net5.0\ERPEntities.pdb
+D:\GIT\ERPAPI\ERPEntities\obj\Debug\net5.0\ref\ERPEntities.dll
