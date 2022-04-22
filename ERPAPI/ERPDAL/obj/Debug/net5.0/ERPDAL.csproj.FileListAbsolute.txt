@@ -1,0 +1,15 @@
+D:\GIT\ERPAPI\ERPDAL\bin\Debug\net5.0\ERPDAL.deps.json
+D:\GIT\ERPAPI\ERPDAL\bin\Debug\net5.0\ERPDAL.dll
+D:\GIT\ERPAPI\ERPDAL\bin\Debug\net5.0\ERPDAL.pdb
+D:\GIT\ERPAPI\ERPDAL\bin\Debug\net5.0\ERPEntities.dll
+D:\GIT\ERPAPI\ERPDAL\bin\Debug\net5.0\ERPEntities.pdb
+D:\GIT\ERPAPI\ERPDAL\obj\Debug\net5.0\ERPDAL.csproj.AssemblyReference.cache
+D:\GIT\ERPAPI\ERPDAL\obj\Debug\net5.0\ERPDAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\GIT\ERPAPI\ERPDAL\obj\Debug\net5.0\ERPDAL.AssemblyInfoInputs.cache
+D:\GIT\ERPAPI\ERPDAL\obj\Debug\net5.0\ERPDAL.AssemblyInfo.cs
+D:\GIT\ERPAPI\ERPDAL\obj\Debug\net5.0\ERPDAL.csproj.CoreCompileInputs.cache
+D:\GIT\ERPAPI\ERPDAL\obj\Debug\net5.0\ERPDAL.csproj.CopyComplete
+D:\GIT\ERPAPI\ERPDAL\obj\Debug\net5.0\ERPDAL.dll
+D:\GIT\ERPAPI\ERPDAL\obj\Debug\net5.0\refint\ERPDAL.dll
+D:\GIT\ERPAPI\ERPDAL\obj\Debug\net5.0\ERPDAL.pdb
+D:\GIT\ERPAPI\ERPDAL\obj\Debug\net5.0\ref\ERPDAL.dll

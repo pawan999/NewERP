@@ -1,6 +1,8 @@
 ﻿using ERPAPI.Entities;
+using ERPServices.Interface;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Security.Claims;
 
@@ -13,6 +15,7 @@ namespace ERPAPI.Controllers
     public class MembersController : ControllerBase
     {
         private readonly IJwtAuth jwtAuth;
+        private readonly IMembersService ObjmembersService;
 
         private readonly List<Member> lstMember = new List<Member>()
         {
@@ -20,14 +23,16 @@ namespace ERPAPI.Controllers
             new Member {Id=2, Name="Nitya" },
             new Member{Id=3, Name="pankaj"}
         };
-        public MembersController(IJwtAuth jwtAuth)
+        public MembersController(IJwtAuth jwtAuth, IMembersService membersService)
         {
             this.jwtAuth = jwtAuth;
+            this.ObjmembersService = membersService;
         }
         // GET: api/<MembersController>
         [HttpGet]
         public IEnumerable<Member> AllMembers()
         {
+            
             return lstMember;
         }
 
@@ -37,7 +42,7 @@ namespace ERPAPI.Controllers
         public Member MemberByid(int id)
         {
 
-           var identity= (ClaimsIdentity)User.Identity;
+         User objuser=   ClaimsManager.GetCurrentUser(HttpContext);
             return lstMember.Find(x => x.Id == id);
         }
 
@@ -47,6 +52,42 @@ namespace ERPAPI.Controllers
         public IActionResult Authentication([FromBody] UserCredential userCredential)
         {
             var token = jwtAuth.Authentication(userCredential.UserName, userCredential.Password);
+            if (token == null)
+                return Unauthorized();
+            return Ok(token);
+        }
+
+        [HttpPost("AddMember")]
+        public IActionResult AddMember([FromBody] User user)
+        {
+            var token = ObjmembersService.AddMember(user);
+            if (token == null)
+                return Unauthorized();
+            return Ok(token);
+        }
+
+        [HttpPost("UpdateMember")]
+        public IActionResult UpdateMember([FromBody] User user)
+        {
+            var token = ObjmembersService.UpdateMember(user);
+            if (token == null)
+                return Unauthorized();
+            return Ok(token);
+        }
+
+        [HttpPost("DeleteMember")]
+        public IActionResult DeleteMember([FromBody] User user)
+        {
+            var token = ObjmembersService.DeleteMember(user);
+            if (token == null)
+                return Unauthorized();
+            return Ok(token);
+        }
+
+        [HttpGet("GetAllTeammembers")]
+        public IActionResult GetAllTeammembers()
+        {
+            var token = ObjmembersService.GetAllTeammembers();
             if (token == null)
                 return Unauthorized();
             return Ok(token);

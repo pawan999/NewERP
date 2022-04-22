@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\NEWERP\\ERPAPI\\ERPWEB\\ERPWEB.csproj",
+      "projectUniqueName": "D:\\GIT\\ERPAPI\\ERPWEB\\ERPWEB.csproj",
       "projectName": "ERPWEB",
-      "projectPath": "D:\\NEWERP\\ERPAPI\\ERPWEB\\ERPWEB.csproj",
+      "projectPath": "D:\\GIT\\ERPAPI\\ERPWEB\\ERPWEB.csproj",
       "packagesPath": "C:\\Users\\Pawan\\.nuget\\packages\\",
-      "outputPath": "D:\\NEWERP\\ERPAPI\\ERPWEB\\obj\\",
+      "outputPath": "D:\\GIT\\ERPAPI\\ERPWEB\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Pawan\\AppData\\Roaming\\NuGet\\NuGet.Config",
