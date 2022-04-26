@@ -51,10 +51,10 @@ namespace ERPAPI.Controllers
         [HttpPost("authentication")]
         public IActionResult Authentication([FromBody] UserCredential userCredential)
         {
-            var token = jwtAuth.Authentication(userCredential.UserName, userCredential.Password);
-            if (token == null)
+            var user = jwtAuth.Authentication(userCredential.UserName, userCredential.Password);
+            if (user == null)
                 return Unauthorized();
-            return Ok(token);
+            return Ok(user);
         }
 
         [HttpPost("AddMember")]
