@@ -35,5 +35,7 @@ namespace ERPAPI.Entities
 
         public long AccountManager { get; set; }
 
+        public string token { get; set; }
+
     }
 }

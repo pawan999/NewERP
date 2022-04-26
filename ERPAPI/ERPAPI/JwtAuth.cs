@@ -22,7 +22,7 @@ namespace ERPAPI
            
             this.objMembersService = membersService;
         }
-        public string Authentication(string username, string password)
+        public User Authentication(string username, string password)
         {
             User objUser = objMembersService.AuthenticateMember(username, password);
 
@@ -48,7 +48,10 @@ namespace ERPAPI
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
             // 5. Return Token from method
-            return tokenHandler.WriteToken(token);
+            objUser .token= tokenHandler.WriteToken(token);
+
+            return objUser;
+
         }
     }
 }
