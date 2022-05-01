@@ -288,7 +288,158 @@ namespace ERPDAL.Implementation
             }
         }
 
+        public List<User> GetAllTeammembersByRole(int RoleId)
+        {
 
+
+            string dbuser = "CLSUPPORT";
+            string dbpassword = "CLSUPPORT";
+
+
+            string db = "10.116.60.171/SOS";
+
+            string ConnectionString = "User Id=" + dbuser + ";Password=" + dbpassword + ";Data Source=" + db + ";";
+            try
+            {
+                using (OracleConnection connection = new OracleConnection(ConnectionString))
+                {
+                    using (OracleCommand command = new OracleCommand("USP_ERP_GETALLMEMBERSBYROLE", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.Add("p_roletype", OracleDbType.Int32).Value = RoleId;
+
+                        command.Parameters.Add("member_cursor", OracleDbType.RefCursor, 120);
+                        command.Parameters["member_cursor"].Direction = ParameterDirection.Output;
+                        connection.Open();
+                        //command.ExecuteNonQuery();
+
+                        OracleDataAdapter da = new OracleDataAdapter(command);
+
+                        // create the data set
+                        DataSet ds = new DataSet();
+
+                        // fill the data set
+                        da.Fill(ds);
+                        //string SomeOutVar = command.Parameters["member_cursor"].Value.ToString();
+
+
+                        List<User> lst = ConvertToUserObject(ds.Tables[0]);
+
+
+
+                        return lst;
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+
+        public List<User> GetAllTeammembersByDepartment(int DepartmentId)
+        {
+
+
+            string dbuser = "CLSUPPORT";
+            string dbpassword = "CLSUPPORT";
+
+
+            string db = "10.116.60.171/SOS";
+
+            string ConnectionString = "User Id=" + dbuser + ";Password=" + dbpassword + ";Data Source=" + db + ";";
+            try
+            {
+                using (OracleConnection connection = new OracleConnection(ConnectionString))
+                {
+                    using (OracleCommand command = new OracleCommand("USP_ERP_GETALLMEMBERSBYDEP", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.Add("p_departmentid", OracleDbType.Int32).Value = DepartmentId;
+
+                        command.Parameters.Add("member_cursor", OracleDbType.RefCursor, 120);
+                        command.Parameters["member_cursor"].Direction = ParameterDirection.Output;
+                        connection.Open();
+                        //command.ExecuteNonQuery();
+
+                        OracleDataAdapter da = new OracleDataAdapter(command);
+
+                        // create the data set
+                        DataSet ds = new DataSet();
+
+                        // fill the data set
+                        da.Fill(ds);
+                        //string SomeOutVar = command.Parameters["member_cursor"].Value.ToString();
+
+
+                        List<User> lst = ConvertToUserObject(ds.Tables[0]);
+
+
+
+                        return lst;
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+
+        public List<User> GetAllAccountManager()
+        {
+
+
+            string dbuser = "CLSUPPORT";
+            string dbpassword = "CLSUPPORT";
+
+
+            string db = "10.116.60.171/SOS";
+
+            string ConnectionString = "User Id=" + dbuser + ";Password=" + dbpassword + ";Data Source=" + db + ";";
+            try
+            {
+                using (OracleConnection connection = new OracleConnection(ConnectionString))
+                {
+                    using (OracleCommand command = new OracleCommand("USP_ERP_GETALLACCOUNTMANAGERS", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.Add("member_cursor", OracleDbType.RefCursor, 120);
+                        command.Parameters["member_cursor"].Direction = ParameterDirection.Output;
+                        connection.Open();
+                        //command.ExecuteNonQuery();
+
+                        OracleDataAdapter da = new OracleDataAdapter(command);
+
+                        // create the data set
+                        DataSet ds = new DataSet();
+
+                        // fill the data set
+                        da.Fill(ds);
+                        //string SomeOutVar = command.Parameters["member_cursor"].Value.ToString();
+
+
+                        List<User> lst = ConvertToUserObject(ds.Tables[0]);
+
+
+
+                        return lst;
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 
 
