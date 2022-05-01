@@ -41,5 +41,20 @@ namespace ERPServices.Implementation
         {
             return objMembersDAL.GetAllTeammembers();
         }
+
+        public List<User> GetAllTeammembersByRole(int RoleId)
+        {
+            return objMembersDAL.GetAllTeammembersByRole(RoleId);
+        }
+
+        public List<User> GetAllTeammembersByDepartment(int DepartmentId)
+        {
+            return objMembersDAL.GetAllTeammembersByDepartment(DepartmentId);
+        }
+
+        public List<User> GetAllAccountManager()
+        {
+            return objMembersDAL.GetAllAccountManager();
+        }
     }
 }

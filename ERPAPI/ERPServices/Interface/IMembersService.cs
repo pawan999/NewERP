@@ -18,5 +18,11 @@ namespace ERPServices.Interface
         bool DeleteMember(User user);
 
         List<User> GetAllTeammembers();
+
+        List<User> GetAllTeammembersByRole(int RoleId);
+
+        List<User> GetAllTeammembersByDepartment(int DepartmentId);
+
+        List<User> GetAllAccountManager();
     }
 }

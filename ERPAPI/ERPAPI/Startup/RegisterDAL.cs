@@ -13,6 +13,8 @@ namespace ERPAPI
             services.AddTransient<IMembersDAL, MembersDAL>();
 
             services.AddTransient<IServiceRequestDAL, ServiceRequestDAL>();
+
+            services.AddTransient<IMasterDAL, MasterDAL>();
         }
         
     }

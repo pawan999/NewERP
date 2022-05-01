@@ -10,6 +10,7 @@ namespace ERPAPI
         {
             services.AddTransient<IMembersService, MembersService>();
             services.AddTransient<IServiceRequestService, ServiceRequestService>();
+            services.AddTransient<IMasterService, MasterService>();
 
             services.AddSingleton<IJwtAuth, JwtAuth>();
         }

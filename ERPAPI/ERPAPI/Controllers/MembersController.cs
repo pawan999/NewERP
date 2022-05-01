@@ -92,5 +92,33 @@ namespace ERPAPI.Controllers
                 return Unauthorized();
             return Ok(token);
         }
+
+        [HttpGet("GetAllTeammembersByRole")]
+        public IActionResult GetAllTeammembersByRole(int RoleId)
+        {
+            var token = ObjmembersService.GetAllTeammembersByRole(RoleId);
+            if (token == null)
+                return Unauthorized();
+            return Ok(token);
+        }
+        [HttpGet("GetAllTeammembersByDepartment")]
+        public IActionResult GetAllTeammembersByDepartment(int DepartmentId)
+        {
+            var token = ObjmembersService.GetAllTeammembersByDepartment(DepartmentId);
+            if (token == null)
+                return Unauthorized();
+            return Ok(token);
+        }
+        [HttpGet("GetAllAccountManager")]
+        public IActionResult GetAllAccountManager()
+        {
+            var token = ObjmembersService.GetAllAccountManager();
+            if (token == null)
+                return Unauthorized();
+            return Ok(token);
+        }
+
+
+
     }
 }
