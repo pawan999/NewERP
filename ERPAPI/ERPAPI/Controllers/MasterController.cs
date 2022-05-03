@@ -55,5 +55,16 @@ namespace ERPAPI.Controllers
                 return Unauthorized();
             return Ok(token);
         }
+
+        [HttpGet("GetServiceRequestTypes")]
+        public IActionResult GetServiceRequestTypes()
+        {
+            var token = ObjmasterService.GetServiceRequestTypes();
+            if (token == null)
+                return Unauthorized();
+            return Ok(token);
+        }
+
+
     }
 }

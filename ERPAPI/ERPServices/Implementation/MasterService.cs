@@ -31,5 +31,10 @@ namespace ERPServices.Implementation
         {
             return objMasterDAL.GetAllRoles();
         }
+
+        public List<ServiceRequestType> GetServiceRequestTypes()
+        {
+            return objMasterDAL.GetServiceRequestTypes();
+        }
     }
 }

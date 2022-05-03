@@ -14,5 +14,7 @@ namespace ERPServices.Interface
         List<Department> GetAllDepartments();
         List<Status> GetAllSttaus();
         List<Role> GetAllRoles();
+
+        List<ServiceRequestType> GetServiceRequestTypes();
     }
 }
