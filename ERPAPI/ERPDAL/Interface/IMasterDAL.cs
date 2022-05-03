@@ -16,5 +16,7 @@ namespace ERPDAL.Interface
         List<Status> GetAllSttaus();
         List<Role> GetAllRoles();
 
+        List<ServiceRequestType> GetServiceRequestTypes();
+
     }
 }

@@ -80,6 +80,29 @@ namespace ERPDAL.Implementation
 
             return lstRole;
         }
+
+
+
+        public List<ServiceRequestType> ConvertToServiceTypeObject(DataTable dt)
+        {
+            List<ServiceRequestType> lstServiceRequestType = new List<ServiceRequestType>();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                ServiceRequestType serviceRequestType = new ServiceRequestType();
+
+                serviceRequestType.ServiceRequestTypeId = Convert.ToInt32(dr["SERVICEREQUESTID"]);
+
+                serviceRequestType.ServiceRequestTypeName = Convert.ToString(dr["SERVICEREQUESTNAME"]);
+
+
+
+                lstServiceRequestType.Add(serviceRequestType);
+
+            }
+
+            return lstServiceRequestType;
+        }
         public List<Department> GetAllDepartments()
         {
 
@@ -215,6 +238,57 @@ namespace ERPDAL.Implementation
 
 
                         List<Role> lst = ConvertToRoleObject(ds.Tables[0]);
+
+
+
+                        return lst;
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+
+
+        public List<ServiceRequestType> GetServiceRequestTypes()
+        {
+
+
+            string dbuser = "CLSUPPORT";
+            string dbpassword = "CLSUPPORT";
+
+
+            string db = "10.116.60.171/SOS";
+
+            string ConnectionString = "User Id=" + dbuser + ";Password=" + dbpassword + ";Data Source=" + db + ";";
+            try
+            {
+                using (OracleConnection connection = new OracleConnection(ConnectionString))
+                {
+                    using (OracleCommand command = new OracleCommand("USP_ERP_GETSERVICEREQUESTTYPES", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.Add("member_cursor", OracleDbType.RefCursor, 120);
+                        command.Parameters["member_cursor"].Direction = ParameterDirection.Output;
+                        connection.Open();
+                        //command.ExecuteNonQuery();
+
+                        OracleDataAdapter da = new OracleDataAdapter(command);
+
+                        // create the data set
+                        DataSet ds = new DataSet();
+
+                        // fill the data set
+                        da.Fill(ds);
+                        //string SomeOutVar = command.Parameters["member_cursor"].Value.ToString();
+
+
+                        List<ServiceRequestType> lst = ConvertToServiceTypeObject(ds.Tables[0]);
 
 
 

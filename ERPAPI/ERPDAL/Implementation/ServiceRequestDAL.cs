@@ -45,6 +45,10 @@ namespace ERPDAL.Implementation
                 serviceRequest.DateModified = Convert.ToDateTime(dr["DATEMODIFIED"]);
                 serviceRequest.LastModifiedBy= Convert.ToInt32(dr["LASTMODIFIEDBY"]);
                 serviceRequest.IsDeleted = Convert.ToBoolean(Convert.ToInt16(dr["ISDELETED"]));
+
+                serviceRequest.DepartmentName = Convert.ToString(dr["DEPARTMENTNAME"]);
+
+                serviceRequest.StatusName = Convert.ToString(dr["STATUSNAME"]);
                 // user.DateModified = Convert.ToDateTime( dr["DATEMODIFIED"]);
 
 
@@ -154,9 +158,11 @@ namespace ERPDAL.Implementation
 
        
 
-        public List<ServiceRequest> GetAllServiceRequest()
+        public List<ServiceRequest> GetAllServiceRequest(User objuser)
         {
 
+           
+            
 
             string dbuser = "CLSUPPORT";
             string dbpassword = "CLSUPPORT";
@@ -172,7 +178,58 @@ namespace ERPDAL.Implementation
                     using (OracleCommand command = new OracleCommand("USP_ERP_GetTransactions", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
-                      
+                        command.Parameters.Add("p_user", OracleDbType.Int32).Value = objuser.Id;
+                        command.Parameters.Add("p_isadmin", OracleDbType.Int32).Value = objuser.RoleName.ToLower();
+
+                        command.Parameters.Add("member_cursor", OracleDbType.RefCursor, 120);
+                        command.Parameters["member_cursor"].Direction = ParameterDirection.Output;
+                        connection.Open();
+                        //command.ExecuteNonQuery();
+
+                        OracleDataAdapter da = new OracleDataAdapter(command);
+
+                        // create the data set
+                        DataSet ds = new DataSet();
+
+                        // fill the data set
+                        da.Fill(ds);
+                        //string SomeOutVar = command.Parameters["member_cursor"].Value.ToString();
+
+
+                        List<ServiceRequest> lst = ConvertToServiceRequestObj(ds.Tables[0]);
+
+
+
+                        return lst;
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public List<ServiceRequest> GetServiceRequestById(int transactionId)
+        {
+
+
+            string dbuser = "CLSUPPORT";
+            string dbpassword = "CLSUPPORT";
+
+
+            string db = "10.116.60.171/SOS";
+
+            string ConnectionString = "User Id=" + dbuser + ";Password=" + dbpassword + ";Data Source=" + db + ";";
+            try
+            {
+                using (OracleConnection connection = new OracleConnection(ConnectionString))
+                {
+                    using (OracleCommand command = new OracleCommand("USP_ERP_GetTransactionsById", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.Add("p_transactionId", OracleDbType.Int32).Value = transactionId;
                         command.Parameters.Add("member_cursor", OracleDbType.RefCursor, 120);
                         command.Parameters["member_cursor"].Direction = ParameterDirection.Output;
                         connection.Open();

@@ -18,6 +18,8 @@ namespace ERPServices.Interface
 
        
 
-        List<ServiceRequest> GetAllServiceRequest();
+        List<ServiceRequest> GetAllServiceRequest(User objuser);
+
+        List<ServiceRequest> GetServiceRequestById(int transactionId);
     }
 }

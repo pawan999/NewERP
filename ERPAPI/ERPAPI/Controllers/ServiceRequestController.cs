@@ -52,9 +52,24 @@ namespace ERPAPI.Controllers
         
 
         [HttpGet("GetAllServiceRequest")]
+       [Authorize]
         public IActionResult GetAllServiceRequest()
         {
-            var token = ObjIServiceRequestService.GetAllServiceRequest();
+            User objuser = ClaimsManager.GetCurrentUser(HttpContext);
+            var token = ObjIServiceRequestService.GetAllServiceRequest(objuser);
+            if (token == null)
+                return Unauthorized();
+            return Ok(token);
+        }
+
+        [HttpGet("{id}")]
+        // [Authorize]
+        public IActionResult ServiceRequestByid(int id)
+        {
+
+            
+
+            var token = ObjIServiceRequestService.GetServiceRequestById(id);
             if (token == null)
                 return Unauthorized();
             return Ok(token);
