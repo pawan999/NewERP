@@ -24,5 +24,8 @@ namespace ERPServices.Interface
         List<User> GetAllTeammembersByDepartment(int DepartmentId);
 
         List<User> GetAllAccountManager();
+
+        List<User> GetAllTeammembersById(int id);
+
     }
 }

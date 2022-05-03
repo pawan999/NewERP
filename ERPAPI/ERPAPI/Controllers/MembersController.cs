@@ -38,12 +38,16 @@ namespace ERPAPI.Controllers
 
         // GET api/<MembersController>/5
         [HttpGet("{id}")]
-        [Authorize]
-        public Member MemberByid(int id)
+       // [Authorize]
+        public IActionResult MemberByid(int id)
         {
 
-         User objuser=   ClaimsManager.GetCurrentUser(HttpContext);
-            return lstMember.Find(x => x.Id == id);
+            // User objuser=   ClaimsManager.GetCurrentUser(HttpContext);
+
+            var token = ObjmembersService.GetAllTeammembersById(id);
+            if (token == null)
+                return Unauthorized();
+            return Ok(token);
         }
 
         [AllowAnonymous]
