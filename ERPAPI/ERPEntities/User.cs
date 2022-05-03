@@ -15,7 +15,11 @@ namespace ERPAPI.Entities
 
         public int DepartmentId { get; set; }
 
+        public string DepartmentName { get; set; }
+
         public int RoleType { get; set; }
+
+        public string RoleName { get; set; }
 
         public string UserName { get; set; }
 
@@ -34,6 +38,7 @@ namespace ERPAPI.Entities
         public DateTime DateModified { get; set; }
 
         public long AccountManager { get; set; }
+        public string AccountManagerName { get; set; }
 
         public string token { get; set; }
 
