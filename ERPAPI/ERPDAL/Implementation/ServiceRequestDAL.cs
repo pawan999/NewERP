@@ -179,7 +179,8 @@ namespace ERPDAL.Implementation
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.Add("p_user", OracleDbType.Int32).Value = objuser.Id;
-                        command.Parameters.Add("p_isadmin", OracleDbType.Int32).Value = objuser.RoleName.ToLower();
+                        string rolename = objuser.RoleName == null ? "" : objuser.RoleName.ToLower();
+                        command.Parameters.Add("p_isadmin", OracleDbType.Char).Value = rolename;
 
                         command.Parameters.Add("member_cursor", OracleDbType.RefCursor, 120);
                         command.Parameters["member_cursor"].Direction = ParameterDirection.Output;

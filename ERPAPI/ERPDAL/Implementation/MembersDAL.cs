@@ -203,7 +203,7 @@ namespace ERPDAL.Implementation
             }
         }
 
-        public bool DeleteMember(User user)
+        public bool DeleteMember(long id)
         {
             string dbuser = "CLSUPPORT";
             string dbpassword = "CLSUPPORT";
@@ -221,9 +221,9 @@ namespace ERPDAL.Implementation
                         command.CommandType = CommandType.StoredProcedure;
 
 
-                        command.Parameters.Add("p_memberid", OracleDbType.Int64).Value = user.Id;
+                        command.Parameters.Add("p_memberid", OracleDbType.Int64).Value = id;
 
-                        command.Parameters.Add("p_isdel", OracleDbType.Char).Value = (user.IsDeeleted) ? "1" : "0";
+                        command.Parameters.Add("p_isdel", OracleDbType.Char).Value = "1";
 
                         connection.Open();
                         command.ExecuteNonQuery();
@@ -448,7 +448,7 @@ namespace ERPDAL.Implementation
 
 
 
-        public List<User> GetAllTeammembersById(int id)
+        public List<User> GetAllTeammembersById(long id)
         {
 
 
@@ -466,7 +466,7 @@ namespace ERPDAL.Implementation
                     using (OracleCommand command = new OracleCommand("USP_ERP_GETALLMEMBERSBYID", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.Add("p_departmentid", OracleDbType.Int32).Value = id;
+                        command.Parameters.Add("p_departmentid", OracleDbType.Int64).Value = id;
                         command.Parameters.Add("member_cursor", OracleDbType.RefCursor, 120);
                         command.Parameters["member_cursor"].Direction = ParameterDirection.Output;
                         connection.Open();

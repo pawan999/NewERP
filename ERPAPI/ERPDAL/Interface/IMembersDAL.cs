@@ -15,7 +15,7 @@ namespace ERPDAL.Interface
 
         bool UpdateMember(User user);
 
-        bool DeleteMember(User user);
+        bool DeleteMember(long id);
 
 
         List<User> GetAllTeammembers();
@@ -27,6 +27,6 @@ namespace ERPDAL.Interface
 
         List<User> GetAllAccountManager();
 
-        List<User> GetAllTeammembersById(int id);
+        List<User> GetAllTeammembersById(long id);
     }
 }
