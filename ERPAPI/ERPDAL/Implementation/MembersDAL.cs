@@ -466,7 +466,7 @@ namespace ERPDAL.Implementation
                     using (OracleCommand command = new OracleCommand("USP_ERP_GETALLMEMBERSBYID", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.Add("p_departmentid", OracleDbType.Int64).Value = id;
+                        command.Parameters.Add("p_memberid", OracleDbType.Int64).Value = id;
                         command.Parameters.Add("member_cursor", OracleDbType.RefCursor, 120);
                         command.Parameters["member_cursor"].Direction = ParameterDirection.Output;
                         connection.Open();
