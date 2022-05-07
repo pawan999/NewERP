@@ -31,9 +31,9 @@ namespace ERPServices.Implementation
             return objMembersDAL.UpdateMember(user);
         }
 
-        public bool DeleteMember(User user)
+        public bool DeleteMember(long id)
         {
-            return objMembersDAL.DeleteMember(user);
+            return objMembersDAL.DeleteMember(id);
         }
 
 
@@ -57,7 +57,7 @@ namespace ERPServices.Implementation
             return objMembersDAL.GetAllAccountManager();
         }
 
-        public List<User> GetAllTeammembersById(int Id)
+        public List<User> GetAllTeammembersById(long Id)
         {
             return objMembersDAL.GetAllTeammembersById(Id);
         }

@@ -39,7 +39,7 @@ namespace ERPAPI.Controllers
         // GET api/<MembersController>/5
         [HttpGet("{id}")]
        // [Authorize]
-        public IActionResult MemberByid(int id)
+        public IActionResult MemberByid(long id)
         {
 
             // User objuser=   ClaimsManager.GetCurrentUser(HttpContext);
@@ -80,9 +80,9 @@ namespace ERPAPI.Controllers
         }
 
         [HttpPost("DeleteMember")]
-        public IActionResult DeleteMember([FromBody] User user)
+        public IActionResult DeleteMember(long ID)
         {
-            var token = ObjmembersService.DeleteMember(user);
+            var token = ObjmembersService.DeleteMember(ID);
             if (token == null)
                 return Unauthorized();
             return Ok(token);
